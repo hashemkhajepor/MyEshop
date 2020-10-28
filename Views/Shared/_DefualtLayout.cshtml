@@ -1,0 +1,1438 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Content/assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/lib/owl.carousel/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/lib/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/assets/css/responsive.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <title>فروشگاه اینترنتی سوپر مارکت</title>
+
+    <script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+    }
+    </script>
+</head>
+<body onload="startTime()">
+    <!-- header -->
+    <header id="header">
+        <!-- Top bar -->
+        <div class="top-bar">
+            <img src="/Content/data/option1/top.jpg" class="hidden-xs" />
+            <div class="container">
+                <div class="row">
+                    <ul class="top-bar-link top-bar-link-left"></ul>
+                    <ul class="top-bar-link top-bar-link-right dot">
+                        <li><a href="compare.html">مقایسه کنید</a></li>
+                        <li><a href="login.html">ورود به حساب کاربری</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Top bar -->
+        <div class="container">
+            <!-- box header -->
+            <div class="row">
+                <div class="box-header">
+                    <div class="col-sm-12 col-md-12 col-lg-3"></div>
+                    <div class="block-wrap-search col-sm-6 col-md-6 col-lg-5" dir="rtl">
+                        <div class="advanced-search box-radius">
+                            <form class="form-inline">
+                                <div class="form-group search-category">
+                                    <select id="category-select" class="search-category-select">
+                                        <option value="1">همه دسته بندی ها</option>
+                                        <option value="2">مرد</option>
+                                        <option value="3">زن</option>
+                                    </select>
+                                </div>
+                                <div class="form-group search-input">
+                                    <input type="text" placeholder="جستجو">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="wrap-block-cl col-sm-3 col-md-3 col-lg-2" style="text-align:center">
+                        <div class="inner-cl box-radius">
+                            <div id="txt"></div>
+                        </div>
+                    </div>
+                    <div class="block-wrap-cart col-sm-3 col-md-3 col-lg-2">
+                        <div class="iner-block-cart box-radius">
+                            <a href="cart.html">
+                                <span class="total">جمع کل: 3240</span>
+                            </a>
+                        </div>
+                        <div class="block-mini-cart" dir="rtl">
+                            <div class="mini-cart-content">
+                                <h5 class="mini-cart-head">محصولات موجود در سبد</h5>
+                                <div class="mini-cart-list">
+                                    <ul>
+                                        <li class="product-info">
+                                            <div class="p-left">
+                                                <a href="#" class="remove_link"></a>
+                                                <a href="cart.html">
+                                                    <img class="img-responsive" src="/Content/data/p1.jpg" alt="Product">
+                                                </a>
+                                            </div>
+                                            <div class="p-right">
+                                                <p class="p-name">ویندوز فون</p>
+                                                <p class="product-price">قیمت:450</p>
+                                                <p>تعداد:4</p>
+                                            </div>
+                                        </li>
+                                        <li class="product-info">
+                                            <div class="p-left">
+                                                <a href="#" class="remove_link"></a>
+                                                <a href="cart.html">
+                                                    <img class="img-responsive" src="/Content/data/p2.jpg" alt="Product">
+                                                </a>
+                                            </div>
+                                            <div class="p-right">
+                                                <p class="p-name">گلکسی s4</p>
+                                                <p class="product-price">قیمت:720</p>
+                                                <p>تعداد:2</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="toal-cart">
+
+                                    <span class="toal-price pull-right"></span><span>جمع کل: 3240</span>
+                                </div>
+                                <div class="cart-buttons">
+                                    <a href="cart.html" class="button-radius btn-check-out">نمایش سبد<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ./box header -->
+            <!-- main header -->
+            <div class="row">
+                <div class="main-header">
+                    <div class="row" style="text-align: center;">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="logo">
+                                <a href="index.html"><img src="/Content/data/option1/logo.png" alt="Logo"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- ./main header -->
+        </div>
+        <!-- main menu-->
+
+        <div class="main-menu">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar" id="main-menu">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">منو</a>
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse pull-right">
+                                <ul class="nav navbar-nav">
+
+
+
+
+
+
+
+
+                                    <li class="active"><a href="index.html">خانه</a></li>
+                                    <li class="dropdown">
+                                        <a href="Prodact.html" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="/Content/data/icon_sale.png" class="hidden-xs" alt="وضعیت رده"><font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">
+                                                    کالای دیجیتال
+                                                </font>
+                                            </font>
+                                        </a>
+                                        <ul class="dropdown-menu mega_dropdown hidden-xs" role="menu" style="width: 900px; left: 240px;">
+
+                                            <li class="block-container col-sm-3 border">
+                                                <div class="img_container banner-hover">
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="/Content/data/banner/b13.png" alt="ورزش">
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-left-radius: 90px;">
+                                                        <a href="#">لوازم جانبی گوشی</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">کیبورد</a></li>
+                                                    <li class="link_container"><a href="#">ماوس</a></li>
+                                                    <li class="link_container"><a href="#">کیس کامپیوتر</a></li>
+                                                    <li class="link_container"><a href="#"> دوربین های کنفرانس</a></li>
+                                                    <li class="link_container"><a href="#">خنک‌‌ کننده و فن</a></li>
+                                                    <li class="link_container"><a href="#">کیف و کاور</a></li>
+                                                    <li class="link_container"><a href="#"> خردکن اداری</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131;">
+                                                        <a href="#">گوشی موبایل</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">گوشی اپل، آیفون</a></li>
+                                                    <li class="link_container"><a href="#">گوشی سامسونگ</a></li>
+                                                    <li class="link_container"><a href="#">گوشی هواوی</a></li>
+                                                    <li class="link_container"><a href="#">گوشی شیائومی</a></li>
+                                                    <li class="link_container"><a href="#">گوشی ال‌ جی</a></li>
+                                                    <li class="link_container"><a href="#">گوشی نوکیا</a></li>
+                                                    <li class="link_container"><a href="#">گوشی اچ‌ تی‌ سی</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-right-radius: 90px;">
+                                                        <a href="#">لپ تاپ و کامپیوتر</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">لپ‌تاپ و نوت‌بوک</a></li>
+                                                    <li class="link_container"><a href="#">کامپیوتر و مانیتور</a></li>
+                                                    <li class="link_container"><a href="#">قطعات کامپیوتر</a></li>
+                                                    <li class="link_container"><a href="#">ماشین‌‌های اداری</a></li>
+                                                    <li class="link_container"><a href="#">تجهیزات ذخیره‌سازی </a></li>
+                                                    <li class="link_container"><a href="#">دوربین مدار بسته</a></li>
+                                                    <li class="link_container"><a href="#">لوازم اداری</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="Prodact.html" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="/Content/data/icon_hot.png" class="hidden-xs" alt="وضعیت رده"><font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">
+                                                    آرایشی، بهداشتی و سلامت
+                                                </font>
+                                            </font>
+                                        </a>
+                                        <ul class="dropdown-menu mega_dropdown hidden-xs" role="menu" style="width: 900px; left: 350px;">
+
+                                            <li class="block-container col-sm-3 border">
+                                                <div class="img_container banner-hover">
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="/Content/data/banner/b12.png" alt="ورزش">
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-left-radius: 90px;">
+                                                        <a href="#">اصلاح و پیرایش</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">اپیلاتور </a></li>
+                                                    <li class="link_container"><a href="#">آرایش</a></li>
+                                                    <li class="link_container"><a href="#">کرم ها و لوسیون ها</a></li>
+                                                    <li class="link_container"><a href="#">کرم های ضد آفتاب</a></li>
+                                                    <li class="link_container"><a href="#">بسته های صورت / صورت</a></li>
+                                                    <li class="link_container"><a href="#">اسپری و بدن گرانبها</a></li>
+                                                    <li class="link_container"><a href="#">بهداشت زنان</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131;">
+                                                        <a href="#">جواهر و زیورآلات</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#"> گوشواره</a></li>
+                                                    <li class="link_container"><a href="#">انگشتر</a></li>
+                                                    <li class="link_container"><a href="#"> گردنبند</a></li>
+
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131;">
+                                                        <a href="#">لوازم زینتی</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">آویز وجاکلیدی  </a></li>
+
+                                                    <li class="link_container"><a href="#">چراغ قوه</a></li>
+
+
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-right-radius: 90px;">
+                                                        <a href="#">عطر، ادکلن، اسپری </a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">حمام و بدن</a></li>
+                                                    <li class="link_container"><a href="#">آرایش</a></li>
+                                                    <li class="link_container"><a href="#">کرم ها و لوسیون ها</a></li>
+                                                    <li class="link_container"><a href="#">کرم های ضد آفتاب</a></li>
+                                                    <li class="link_container"><a href="#">بسته های صورت / صورت</a></li>
+                                                    <li class="link_container"><a href="#">اسپری و بدن گرانبها</a></li>
+                                                    <li class="link_container"><a href="#">بهداشت زنان</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="Prodact.html" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="/Content/data/icon_new.png" class="hidden-xs" alt="وضعیت رده"><font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">
+                                                    خودرو، ابزار و اداری
+                                                </font>
+                                            </font>
+                                        </a>
+                                        <ul class="dropdown-menu mega_dropdown hidden-xs" role="menu" style="width: 900px; left: 140px;">
+
+                                            <li class="block-container col-sm-3 border">
+                                                <div class="img_container banner-hover">
+                                                    <a href="#">
+                                                        <img class="img-responsive" src="/Content/data/banner/b14.png" alt="ورزش">
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-left-radius: 90px;">
+                                                        <a href="#">مدل پرطرفدار</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">حمام و بدن</a></li>
+                                                    <li class="link_container"><a href="#">آرایش</a></li>
+                                                    <li class="link_container"><a href="#">کرم ها و لوسیون ها</a></li>
+                                                    <li class="link_container"><a href="#">کرم های ضد آفتاب</a></li>
+                                                    <li class="link_container"><a href="#">بسته های صورت / صورت</a></li>
+                                                    <li class="link_container"><a href="#">اسپری و بدن گرانبها</a></li>
+                                                    <li class="link_container"><a href="#">بهداشت زنان</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3 border">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131;">
+                                                        <a href="#">مدل پرطرفدار</a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">حمام و بدن</a></li>
+                                                    <li class="link_container"><a href="#">آرایش</a></li>
+                                                    <li class="link_container"><a href="#">کرم ها و لوسیون ها</a></li>
+                                                    <li class="link_container"><a href="#">کرم های ضد آفتاب</a></li>
+                                                    <li class="link_container"><a href="#">بسته های صورت / صورت</a></li>
+                                                    <li class="link_container"><a href="#">اسپری و بدن گرانبها</a></li>
+                                                    <li class="link_container"><a href="#">بهداشت زنان</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="block-container col-sm-3">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container group_header" style="background: #ffe0e3; color:#313131; border-bottom-right-radius: 90px;">
+                                                        <a href="#">عطر، ادکلن، اسپری </a>
+                                                    </li>
+                                                    <li class="link_container"><a href="#">حمام و بدن</a></li>
+                                                    <li class="link_container"><a href="#">آرایش</a></li>
+                                                    <li class="link_container"><a href="#">کرم ها و لوسیون ها</a></li>
+                                                    <li class="link_container"><a href="#">کرم های ضد آفتاب</a></li>
+                                                    <li class="link_container"><a href="#">بسته های صورت / صورت</a></li>
+                                                    <li class="link_container"><a href="#">اسپری و بدن گرانبها</a></li>
+                                                    <li class="link_container"><a href="#">بهداشت زنان</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="Prodact.html" class="dropdown-toggle" data-toggle="dropdown">مد و پوشاک</a>
+                                        <ul class="dropdown-menu mega_dropdown container-fluid" style="width: 261px; left: 380px;">
+                                            <li class="block-container">
+                                                <ul class="block-megamenu-link">
+                                                    <li class="link_container"><a href="#">سیار</a></li>
+                                                    <li class="link_container"><a href="#">قرص ها</a></li>
+                                                    <li class="link_container"><a href="#">لپ تاپ</a></li>
+                                                    <li class="link_container"><a href="#">کارت های حافظه</a></li>
+                                                    <li class="link_container"><a href="#">تجهیزات جانبی</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="Prodact.html">خانه و آشپزخانه</a></li>
+
+                                    <li><a href="Prodact.html">کتاب، لوازم تحریر و هنر</a></li>
+
+                                    <li><a href="Prodact.html"> فروش ویژه</a></li>
+                                </ul>
+                            </div><!--/.nav-collapse -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- ./main menu-->
+    </header>
+    <!-- ./header -->
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-8 col-md-8 col-lg-9">
+                    <!-- Home slide -->
+                    <div class="block block-slider">
+                        <ul class="home-slider kt-bxslider">
+                            <li><img src="/Content/data/option1/slide03.jpg" alt="Slider"></li>
+                            <li><img src="/Content/data/option1/slide04.jpg" alt="Slider"></li>
+                            <li><img src="/Content/data/option1/slide02.jpg" alt="Slider"></li>
+                            <li><img src="/Content/data/option1/slide01.jpg" alt="Slider"></li>
+                        </ul>
+                    </div>
+                    <!-- ./Home slide -->
+                    <div class="row">
+
+
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-3 hidden-xs">
+                    <!-- block category -->
+
+                    <div class="block block-category">
+                        <div class="block-head">
+                            <ul class="nav-tab" style="text-align:center">
+                                <li class=""><a data-toggle="tab" href="#tab-guarantee" aria-expanded="false">تخفیفات</a></li>
+                                <li class="active"><a data-toggle="tab" href="#tab-categories" aria-expanded="true">دسته بندی ها</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="block-inner">
+                            <div class="tab-container">
+                                <div id="tab-categories" class="tab-panel active" dir="rtl">
+                                    <ul class="categories">
+                                        <li>
+                                            <a href="#" title="عطر و ادکلن">
+                                                <span class="text">عطر و ادکلن </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="محصولات مراقبت از پوست">
+                                                <span class="text">محصولات مراقبت از پوست </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#l" title="متکاپ">
+                                                <span class="text">متکاپ </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="تلفن همراه">
+                                                <span class="text">تلفن همراه </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="قرص">
+                                                <span class="text">قرص </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="تماشای ورزش">
+                                                <span class="text">سازمان دیده بان ورزش </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="پوشاک زنان">
+                                                <span class="text">لباس زنانه </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="پوشاک مردانه">
+                                                <span class="text">پوشاک مردانه </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="text">لوازم جانبی </span>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="tab-guarantee" class="tab-panel" dir="rtl">
+                                    <ul class="categories">
+                                        <li>
+                                            <a href="#" title="عطر و ادکلن">
+                                                <span class="text">عطر و ادکلن </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="محصولات مراقبت از پوست">
+                                                <span class="text">محصولات مراقبت از پوست </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="تماشای ورزش">
+                                                <span class="text">سازمان دیده بان ورزش </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="تلفن همراه">
+                                                <span class="text">تلفن همراه </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#l" title="متکاپ">
+                                                <span class="text">متکاپ </span>
+                                            </a>
+                                        </li>
+
+
+                                        <li>
+                                            <a href="#" title="پوشاک زنان">
+                                                <span class="text">لباس زنانه </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="قرص">
+                                                <span class="text">قرص </span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <span class="text">لوازم جانبی </span>
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="پوشاک مردانه">
+                                                <span class="text">پوشاک مردانه </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- block  host deals -->
+            <div class="block block-hot-deals">
+                <div class="block-head">
+                    <div class="block-title">
+                        <div class="block-icon">
+                            <img src="/Content/data/offers_time-icon.png" alt="store icon">
+                        </div>
+                        <div class="block-title-text text-sm"> </div>
+                        <div class="block-title-text text-lg"> </div>
+                    </div>
+                    <div class="block-countdownt">
+                        <span class="countdown-lastest" data-y="2020" data-m="10" data-d="1" data-h="00" data-i="00" data-s="00"></span>
+                    </div>
+                </div>
+                <div class="block-inner">
+                    <ul class="products kt-owl-carousel" data-margin="20" data-loop="true" data-nav="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p6.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                    <div class="product-status">
+                                        <span class="new">جدید</span>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">مانیتور</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p7.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">ساعت  شیائومی</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p8.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">Samsung Galaxy S8 64GB Pr</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p9.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">تلویزیون پلاسما</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p10.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">گوشواره </a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p9.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">تلویزیون پلاسما</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price">165</span>
+                                        <span class="product-price-old">130</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- ./block hot deals -->
+        </div>
+        <!--Block banner -->
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/option1/banner3.png" alt="Banner"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/option1/banner4.png" alt="Banner"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Block banner -->
+
+
+
+        <div class="">
+            <div class="row">
+                <div class="row">
+                    <div class="col-sm-8 col-md-8 col-lg-9">
+
+                        <div class="row">
+                            <div class="col-md-12 col-lg-4">
+                                <div class="block block-shop-features">
+
+                                    <div class="block-inner">
+                                        <ul class="list-banner">
+                                            <li class="banner-hover"><a href="#"><img src="/Content/data/option1/1.gif" alt="بنر"></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12 col-lg-8">
+
+                                <div class="block block-offers">
+                                    <div class="block-head">
+                                        <div class="block-title">
+                                            <div class="block-icon">
+                                                <img src="/Content/data/offers-icon.png" alt="نماد فروشگاه">
+                                            </div>
+                                            <div class="block-title-text text-sm"> </div>
+                                            <div class="block-title-text text-lg"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="block-inner">
+                                        <ul class="products kt-owl-carousel" data-margin="0" data-loop="true" data-nav="true" data-responsive='{"0":{"items":2},"600":{"items":2},"1000":{"items":2}}'>
+                                            <li class="product">
+                                                <div class="product-container">
+                                                    <div class="product-left">
+                                                        <div class="product-thumb">
+                                                            <a class="product-img" href="#"><img src="/Content/data/option1/p6.jpg" alt="تولید - محصول"></a>
+                                                            <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <div class="product-name">
+                                                            <a href="#">گلکسیs8</a>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <span class="product-price">165</span>
+                                                            <span class="product-price-old">130</span>
+                                                        </div>
+                                                        <div class="product-star">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                        </div>
+                                                        <div class="product-button">
+                                                            <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                            <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                            <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="product">
+                                                <div class="product-container">
+                                                    <div class="product-left">
+                                                        <div class="product-thumb">
+                                                            <a class="product-img" href="#"><img src="/Content/data/option1/p7.jpg" alt="تولید - محصول"></a>
+                                                            <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <div class="product-name">
+                                                            <a href="#">ساعت</a>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <span class="product-price">165</span>
+                                                            <span class="product-price-old">130</span>
+                                                        </div>
+                                                        <div class="product-star">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                        </div>
+                                                        <div class="product-button">
+                                                            <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                            <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                            <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="product">
+                                                <div class="product-container">
+                                                    <div class="product-left">
+                                                        <div class="product-thumb">
+                                                            <a class="product-img" href="#"><img src="/Content/data/option1/p5.jpg" alt="تولید - محصول"></a>
+                                                            <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <div class="product-name">
+                                                            <a href="#">دستبند</a>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <span class="product-price">165</span>
+                                                            <span class="product-price-old">130</span>
+                                                        </div>
+                                                        <div class="product-star">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                        </div>
+                                                        <div class="product-button">
+                                                            <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                            <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                            <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="product">
+                                                <div class="product-container">
+                                                    <div class="product-left">
+                                                        <div class="product-thumb">
+                                                            <a class="product-img" href="#"><img src="/Content/data/option1/p4.jpg" alt="تولید - محصول"></a>
+                                                            <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-right">
+                                                        <div class="product-name">
+                                                            <a href="#">مانیتور</a>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <span class="product-price">165</span>
+                                                            <span class="product-price-old">130</span>
+                                                        </div>
+                                                        <div class="product-star">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-o"></i>
+                                                        </div>
+                                                        <div class="product-button">
+                                                            <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                            <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                            <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+
+                        <div class="block block-top-sellers">
+                            <div class="block-head">
+                                <div class="block-title">
+                                    <div class="block-icon">
+                                        <img src="/Content/data/top-seller-icon.png" alt="نماد فروشگاه">
+                                    </div>
+                                    <div class="block-title-text text-sm"> </div>
+                                    <div class="block-title-text text-lg"> </div>
+                                </div>
+                            </div>
+                            <div class="block-inner">
+                                <ul class="products kt-owl-carousel" data-items="1" data-autoplay="true" data-loop="true" data-nav="true">
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <div class="product-left">
+                                                <div class="product-thumb">
+                                                    <a class="product-img" href="#"><img src="/Content/data/option1/p1.jpg" alt="تولید - محصول"></a>
+                                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-right">
+                                                <div class="product-name">
+                                                    <a href="#">عطر</a>
+                                                </div>
+                                                <div class="price-box">
+                                                    <span class="product-price">165</span>
+                                                    <span class="product-price-old">130</span>
+                                                </div>
+                                                <div class="product-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </div>
+                                                <div class="product-button">
+                                                    <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                    <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                    <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <div class="product-left">
+                                                <div class="product-thumb">
+                                                    <a class="product-img" href="#"><img src="/Content/data/option1/p2.jpg" alt="تولید - محصول"></a>
+                                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-right">
+                                                <div class="product-name">
+                                                    <a href="#">عطر</a>
+                                                </div>
+                                                <div class="price-box">
+                                                    <span class="product-price">165</span>
+                                                    <span class="product-price-old">130</span>
+                                                </div>
+                                                <div class="product-star">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </div>
+                                                <div class="product-button">
+                                                    <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                                    <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                                    <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- block-popular-cat-->
+        <!--Block banner -->
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/Logo_shop/1.jpg" alt="Banner"></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/Logo_shop/2.jpg" alt="Banner"></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/Logo_shop/3.jpg" alt="Banner"></a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="block block-banner banner-hover">
+                        <a href="#"><img src="/Content/data/Logo_shop/4.jpg" alt="Banner"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Block banner -->
+        <div class="row">
+            <!-- block  host deals -->
+            <div class="block block-hot-deals">
+
+                <div class="block-inner">
+                    <ul class="products kt-owl-carousel" data-margin="20" data-loop="true" data-nav="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p6.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                    <div class="product-status">
+                                        <span class="new">جدید</span>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">گلکسی s8+</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p7.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">ساعت  شیائومی</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p8.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">Samsung Galaxy S8 64GB Pr</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p9.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">تلویزیون پلاسما</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p10.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">گوشواره </a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="product">
+                            <div class="product-container">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a class="product-img" href="#"><img src="/Content/data/option1/p9.jpg" alt="تولید - محصول"></a>
+                                        <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name">
+                                        <a href="#">تلویزیون پلاسما</a>
+                                    </div>
+                                    <div class="price-box">
+                                        <span class="product-price"> 139.98 </span>
+                                        <span class="product-price-old"> 169.00</span>
+                                    </div>
+                                    <div class="product-star">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                    </div>
+                                    <div class="product-button">
+                                        <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                                        <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                                        <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- ./block hot deals -->
+        </div>
+        <!-- ./block-popular-cat-->
+    </div>
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+
+
+                            <img src="/Content/data/namad3.jpg" />
+
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="block footer-block-box">
+                                <div class="block-head">
+                                    <div class="block-title">
+                                        <div class="block-icon">
+                                            <img src="/Content/data/email-icon.png" alt="store icon">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="block-inner" dir="rtl">
+                                    <div class="block-info clearfix">
+                                        لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است
+                                    </div>
+                                    <div class="block-input-box box-radius clearfix">
+                                        <input type="text" class="input-box-text" placeholder="ادرس ایمیل">
+                                        <button class="block-button">عضویت</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="block footer-block-box">
+                                <div class="block-head">
+                                    <div class="block-title">
+                                        <div class="block-icon">
+                                            <img src="/Content/data/partners-icon.png" alt="نماد فروشگاه">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="block-inner">
+                                    <div class="block-owl">
+                                        <ul class="kt-owl-carousel list-partners" data-nav="true" data-autoplay="true" data-loop="true" data-items="1">
+                                            <li class="partner"><a href="#"><img src="/Content/data/partner1.jpg" alt="partner"></a></li>
+                                            <li class="partner"><a href="#"><img src="/Content/data/partner2.jpg" alt="partner"></a></li>
+                                            <li class="partner"><a href="#"><img src="/Content/data/partner3.jpg" alt="partner"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle" dir="rtl" style="    background: #f9f9f9;">
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4 block-link-wapper hidden-xs">
+                            <div class="block-link">
+                                <ul class="list-link">
+                                    <li class="head"><a href="#">پنل کاربری</a></li>
+                                    <li><a href="#">ورود</a></li>
+                                    <li><a href="#">عضویت</a></li>
+                                    <li><a href="#">پیگیری سفارشات</a></li>
+                                    <li><a href="#">لیست سفارشات</a></li>
+                                    <li><a href="#">پرداخت </a></li>
+                                    <li><a href="#">ارسال</a></li>
+                                    <li><a href="#"> تراکنش ها</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 block-link-wapper hidden-xs">
+                            <div class="block-link">
+                                <ul class="list-link">
+                                    <li class="head"><a href="#">فروشگاه مرکزی</a></li>
+                                    <li><a href="#">ثبت نام </a></li>
+                                    <li><a href="#"> خبرنامه </a></li>
+                                    <li><a href="#">چگونه کار می کند</a></li>
+                                    <li><a href="#">قیمت گذاری</a></li>
+                                    <li><a href="#">لیست محصولات</a></li>
+                                    <li><a href="#">ابزارها </a></li>
+                                    <li><a href="#">بهترین ها</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 block-link-wapper hidden-xs">
+                            <div class="block-link">
+                                <ul class="list-link">
+                                    <li class="head"><a href="#">اطلاعات</a></li>
+                                    <li><a href="#">درباره ما</a></li>
+                                    <li><a href="#">نماد اعتماد</a></li>
+                                    <li><a href="#">تاریخچه</a></li>
+                                    <li><a href="#">اخبار</a></li>
+                                    <li><a href="#"> مطبوعات</a></li>
+                                    <li><a href="#">جوایز جدید</a></li>
+                                    <li><a href="#">شغل</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 block-link-wapper">
+                            <div class="block-link">
+                                <ul class="list-link">
+                                    </br>
+                                    <li class="head" style="text-align:center"><a href="#">فروشگاه اینترنتی هایپر مارکت، بررسی، انتخاب و خرید آنلاین</a></li>
+
+                                </ul>
+                                <ul>
+                                    </br>
+                                    <li style="text-align:justify">هایپر مارکت به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با پایبندی به سه اصل کلیدی، پرداخت در محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های معتبر جهان، به بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل شود. به محض ورود به هایپر مارکت با یک سایت پر از کالا رو به رو می‌شوید! هر آنچه که نیاز دارید و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد. </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 block-link-wapper">
+                            <div class="block-link">
+
+                                <img src="/Content/data/shopman.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-social" style="background: #f9f9f9;">
+            <div class="container">
+                <div class="row">
+                    <div class="block-social">
+                        <ul class="list-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pied-piper"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="block-payment">
+                        <ul class="list-logo">
+                            <li><a href="#"><img src="/Content/data/payment1.png" alt="Payment Logo"></a></li>
+                            <li><a href="#"><img src="/Content/data/payment2.png" alt="Payment Logo"></a></li>
+                            <li><a href="#"><img src="/Content/data/payment3.png" alt="Payment Logo"></a></li>
+                            <li><a href="#"><img src="/Content/data/payment4.png" alt="Payment Logo"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/Content/data/banner/footer_back.jpg" />
+        <div class="footer-bottom" style="background-color:#b8b8b8">
+            <div class="container">
+                <div class="row" style="text-align:center">
+                    <div class="block-coppyright">کلیه حقوق این وب سایت برای ناشر محفوظ می باشد</div></br>
+                    <div class="block-coppyright">1398-1399</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ./footer -->
+    <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
+    <script type="text/javascript" src="/Content/assets/lib/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/lib/owl.carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/lib/jquery-ui/jquery-ui.min.js"></script>
+    <!-- COUNTDOWN -->
+    <script type="text/javascript" src="/Content/assets/lib/countdown/jquery.plugin.js"></script>
+    <script type="text/javascript" src="/Content/assets/lib/countdown/jquery.countdown.js"></script>
+    <!-- ./COUNTDOWN -->
+    <script type="text/javascript" src="/Content/assets/js/jquery.actual.min.js"></script>
+    <script type="text/javascript" src="/Content/assets/js/script.js"></script>
+
+</body>
+
+
+</html>
+@RenderBody()
