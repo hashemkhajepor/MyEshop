@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DataLayer.Users>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-success">افزودن کاربر جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roles.RoleTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @item.RegisterDate.ToShamsi()
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Roles.RoleTitle)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit",new { id = item.UserID })" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+            <a href="/Admin/Users/Delete/@item.UserID" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

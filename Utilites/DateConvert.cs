@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace Amazon
+namespace MyEshop
 {
     public static class DateConvert
     {
