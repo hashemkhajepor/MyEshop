@@ -1,0 +1,12 @@
+﻿@model DataLayer.Users
+@{
+
+    ViewBag.Title = "SuccessRegister";
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+<img src="/Content/data/banner/shoping.jpg">
+<div class="container" dir="rtl">
+    <h4 style="color:darkgreen">@Model.UserName  عزیز! ثبت نام با موفقیت انجام شد.</h4>
+    <p>لطفا برای تکیمل فرایند ثبت نام به ایمیل @Model.Email روید و روی لینک فعال سازی کلیک کنید.</p>
+</div>
+

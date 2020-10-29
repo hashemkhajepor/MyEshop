@@ -1,0 +1,9 @@
+﻿@using System.Configuration
+@model DataLayer.Users
+<div style="direction:rtl;padding:40px">
+    <h2 style="color : blue">@Model.UserName عزیز!</h2>
+    <p>با تشکر از شما، لطفا برای بازیابی کلمه عبور خود روی لینک زیر کلیک کنید. </p>
+    <p>
+        <a href="@ConfigurationManager.AppSettings["MyDomain"]/Account/RecoveryPassword/@Model.ActiveCode">لینک بازیابی</a>
+    </p>
+</div>

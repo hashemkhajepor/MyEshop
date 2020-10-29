@@ -6,14 +6,14 @@ using System.Web.Mvc;
 
 namespace MyEshop.Controllers
 {
-    public class HomeController : Controller
+    public class ManageEmailsController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        // GET: ManageEmails
+        public ActionResult ActivationEmail()
         {
-            return View();
+            return PartialView();
         }
-        public ActionResult Slider()
+        public ActionResult RecoveryEmail()
         {
             return PartialView();
         }
