@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DataLayer.Products>
+
+@{
+    ViewBag.Title = "مدیریت محصولات";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-success">افزودن محصول جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceOff)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img src="~/Images/ProductImages/Thumb/@item.ImageName" class="thumbnail" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+
+    <td>
+        @item.Price.Toman()
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PriceOff)
+    </td>
+
+    <td>
+        @item.CreateDate.ToShamsi()
+    </td>
+    <td>
+        <a href="@Url.Action("Features" , new { id = item.ProductID })" class="btn btn-default btn-xs" title="ویژگی های محصول"><i class="glyphicon glyphicon-th"></i></a>
+        <a href="@Url.Action("Gallery" , new { id = item.ProductID })" class="btn btn-info btn-xs" title="گالری تصاویر"><i class="glyphicon glyphicon-camera"></i></a>
+        <a href="@Url.Action("Edit" , new { id = item.ProductID })" class="btn btn-warning btn-xs" title="ویرایش محصول"><i class="glyphicon glyphicon-edit"></i></a>
+        <a href="@Url.Action("Delete" , new { id = item.ProductID })" class="btn btn-danger btn-xs" title="حذف محصول"><i class="glyphicon glyphicon-trash"></i></a>
+    </td>
+</tr>
+}
+
+</table>

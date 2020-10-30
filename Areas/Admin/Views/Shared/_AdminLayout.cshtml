@@ -9,7 +9,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="/Areas/Content/img/favicon.html">
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/Areas/Content/css/bootstrap.min.css" rel="stylesheet">
@@ -441,26 +441,29 @@
     <!--script for this page-->
     <script src="/Areas/Content/js/sparkline-chart.js"></script>
     <script src="/Areas/Content/js/easy-pie-chart.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script>//owl carousel
+    @RenderSection("Scripts", false)
+    <script>
+        //owl carousel
 
-      $(document).ready(function() {
-          $("#owl-demo").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true
 
-          });
-      });
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
 
-      //custom select box
+            });
+        });
 
-      $(function(){
-          $('select.styled').customSelect();
-      });</script>
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });</script>
 
 </body>
 </html>

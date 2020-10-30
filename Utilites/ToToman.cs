@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Amazon
+namespace MyEshop
+
 {
     public static class ToToman
     {

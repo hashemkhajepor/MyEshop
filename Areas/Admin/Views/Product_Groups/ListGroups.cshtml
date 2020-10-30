@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DataLayer.Product_Groups>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th>
+            زیر گروه
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr id="group_@(item.GroupID)">
+            <td>
+                <a href="#@item.GroupID" data-toggle="collapse" aria-expanded="false">@item.GroupTitle</a>
+            </td>
+            <td>
+                @if (item.Product_Groups1.Any())
+                {
+                    <ul id="@item.GroupID" class="collapse">
+                        @foreach (var subGroup in item.Product_Groups1)
+                        {
+                            <li id="group_@(subGroup.GroupID)">
+                                <a class="btn btn-warning btn-xs" onclick="Edit(@subGroup.GroupID)"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a class="btn btn-danger btn-xs" onclick="Delete(@subGroup.GroupID)"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a class="btn btn-primary btn-xs" onclick="Create(@subGroup.GroupID)"><i class="glyphicon glyphicon-plus"></i></a>
+                                <a href="#@subGroup.GroupID" data-toggle="collapse" aria-expanded="false">@subGroup.GroupTitle</a>
+                                <ul style="padding-right:100px" id="@subGroup.GroupID" class="collapse">
+                                    @foreach (var minGroup in subGroup.Product_Groups1.Where(p => p.ParentID == subGroup.GroupID))
+                                    {
+                                        <li id="group_@(minGroup.GroupID)">
+                                            <a class="btn-xs" onclick="Edit(@minGroup.GroupID)"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a class="btn-xs" onclick="Delete(@minGroup.GroupID)"><i class="glyphicon glyphicon-trash"></i></a>
+                                            @minGroup.GroupTitle
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                            <p></p>
+                        }
+                    </ul>
+                }
+            </td>
+            <td>
+                <a class="btn btn-warning btn-xs" onclick="Edit(@item.GroupID)"><i class="glyphicon glyphicon-edit"></i></a>
+                <a class="btn btn-danger btn-xs"  onclick="Delete(@item.GroupID)"><i class="glyphicon glyphicon-trash"></i></a>
+                <a class="btn btn-primary btn-xs" onclick="Create(@item.GroupID)"><i class="glyphicon glyphicon-plus"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

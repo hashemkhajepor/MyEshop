@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DataLayer.Product_Groups>
+ <style>
+     .scrollbar {
+         background-color: #f5f5f5;
+         float: left;
+         height: 300px;
+         width: auto;
+         overflow-y: scroll;
+     }
+
+     .force-overflow {
+         min-height: 450px;
+     }
+
+     #style-1::-webkit-scrollbar {
+         width: 6px;
+         background-color: #f5f5f5;
+     }
+
+     #style-1::-webkit-scrollbar-thumb {
+         width: 6px;
+         background-color: #413d3d;
+     }
+
+     #style-1::-webkit-scrollbar-track {
+         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+         background-color: #f5f5f5;
+     }
+
+     .table-responsive {
+         min-height: .01%;
+         overflow-x: auto;
+     }
+ </style>
+<div class="scrollbar" id="style-1">
+    <div class="force-overflow">
+        <ul class="categories">
+            @foreach (var group in Model.Where(g => g.ParentID == null))
+            {
+                <li>
+                    <a href="#@group.GroupID" title="@group.GroupTitle" data-toggle="collapse" aria-expanded="false">
+                        <span class="text">@group.GroupTitle</span>
+                    </a>
+                </li>
+
+                if (Model.Where(p => p.ParentID == group.GroupID).Any())
+                {
+                    <ul id="@group.GroupID" class="collapse" style="padding-right:30px; padding-top:10px">
+                        @foreach (var subgroup in Model.Where(g => g.ParentID == group.GroupID))
+                        {
+                            <li style="padding-top:5px">
+                                <a href="#@subgroup.GroupID" title="@subgroup.GroupTitle" data-toggle="collapse" aria-expanded="false">
+                                    <span>@subgroup.GroupTitle</span>
+                                </a>
+                            </li>
+
+
+                            if (Model.Where(a => a.ParentID == subgroup.GroupID).Any())
+                            {
+                                <ul id="@subgroup.GroupID" class="collapse" style="padding-right:15px">
+                                    @foreach (var mingroup in Model.Where(g => g.ParentID == subgroup.GroupID))
+                                    {
+                                        <li><a href="#" title="@mingroup.GroupTitle"><span>@mingroup.GroupTitle</span></a></li>
+                                    }
+                                </ul>
+                            }
+                        }
+                    </ul>
+                }
+            }
+        </ul>
+        </div>
+</div>
