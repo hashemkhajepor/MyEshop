@@ -1,0 +1,34 @@
+﻿@using DataLayer;
+@model DataLayer.Products
+<div class="row">
+    <!-- block  host deals -->
+    <div class="block block-hot-deals">
+        <div class="block-head">
+            <div class="block-title">
+                <div class="block-icon">
+                    <img src="/Content/data/offers_time-icon.png" alt="store icon">
+                </div>
+                <div class="block-title-text text-sm"> </div>
+                <div class="block-title-text text-lg"> </div>
+            </div>
+            <div class="block-countdownt">
+                <span class="countdown-lastest" data-y="2020" data-m="10" data-d="1" data-h="00" data-i="00" data-s="00"></span>
+            </div>
+        </div>
+        <div class="block-inner">
+            <ul class="products kt-owl-carousel" data-margin="20" data-loop="true" data-nav="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+                @{
+                    List<Products> priceOffer = ViewBag.ProductPrice;
+                    foreach (var item in priceOffer)
+                    {
+                        @Html.Partial("_Product", item)
+                    }
+                }
+
+
+
+            </ul>
+        </div>
+    </div>
+    <!-- ./block hot deals -->
+</div>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DataLayer.Feature_Groups>
+
+@{
+    ViewBag.Title = "مدیریت ویژگی های محصول";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<hr style="border-color: crimson" />
+<h1></h1>
+<p>
+    <a class="btn btn-success" onclick="Create()">افزودن سر گروه</a>
+</p>
+<h5></h5>
+
+<div id="listfeature">
+    @Html.Action("ListFeature")
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function Create(parentId) {
+        $.get("/Admin/Feature_Groups/Create/ " + parentId,
+            function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن گروه");
+                $("#myModalBody").html(result);
+            });
+    }
+
+
+    function Edit(id) {
+        $.get("/Admin/Feature_Groups/Edit/" + id,
+            function (result) {
+                $("#myModal").modal('show');
+                $("#myModalLabel").html("ویرایش سر گروه");
+                $("#myModalBody").html(result);
+            });
+    }
+
+    function Delete(id) {
+        if (confirm("آیا از حذف مطمئن هستید؟")) {
+            $.get("/Admin/Feature_Groups/Delete/" + id,
+                function () {
+                    $("#group_" + id).hide('slow');
+                });
+        }
+    }
+
+    function Succesas() {
+        $("#myModal").modal('hide');
+    }
+</script>

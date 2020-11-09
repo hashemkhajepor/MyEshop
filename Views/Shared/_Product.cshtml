@@ -1,0 +1,33 @@
+﻿@model DataLayer.Products
+
+<li class="product">
+    <div class="product-container">
+        <div class="product-left">
+            <div class="product-thumb">
+                <a class="product-img" href="#"><img src="~/Images/ProductImages/Thumb/@Model.ImageName" alt="تولید - محصول"></a>
+                <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+            </div>
+        </div>
+        <div class="product-right">
+            <div class="product-name">
+                <a href="/Product/ShowProduct/@Model.ProductID">@Model.Title</a>
+            </div>
+            <div class="price-box">
+                <span class="product-price">@Model.PriceOff</span>
+                <span class="product-price-old">@Model.Price</span>
+            </div>
+            <div class="product-star">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <div class="product-button">
+                <a class="btn-add-wishlist" title="افزودن به لیست دلخواه" href="#">افزودن لیست دلخواه </a>
+                <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن مقایسه مقایسه </a>
+                <a class="button-radius btn-add-cart" title="افزودن به سبد خرید" href="#">خرید<span class="icon"></span></a>
+            </div>
+        </div>
+    </div>
+</li>

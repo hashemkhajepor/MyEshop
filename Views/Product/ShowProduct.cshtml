@@ -1,0 +1,575 @@
+﻿@using DataLayer;
+
+@model DataLayer.Products
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+
+}
+
+<img src="/Content/data/banner/shoping.jpg" />
+
+
+<div class="container product-page">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="row">
+                    <div class="col-sm-12 col-md-5 " style="float:left">
+                        <!-- block  top sellers -->
+
+                        <img src="/Content/data/Logo_shop/warranty.jpg" />
+                        <!-- block  top sellers -->
+                    </div>
+                    <div class="col-sm-12 col-md-7" dir="rtl">
+                        <div class="block-product-info">
+                            <h4 class="product-name">
+                                @Model.Title
+                            </h4>
+
+                            <h6 class="desc">
+                                Samsung Galaxy S10 Plus SM-G975F/DS Dual SIM 128GB Mobile Phone
+                            </h6>
+
+
+
+
+
+                            <div class="c-product__seller-row c-product__seller-row--price">
+                                <div class="c-product__seller-price-info">
+                                    <div class="c-product__seller-price-label">
+                                        قیمت مصرف کننده
+                                        <span class="hidden-xs js-dk-wiki-trigger c-wiki c-wiki__holder">
+                                            <span class="c-wiki-sign"></span><div class="c-wiki__container js-dk-wiki is-right">
+                                                <div class="c-wiki__arrow"></div><p class="c-wiki__text">
+                                                    قیمت مصرف‌کننده همان قیمت چاپ‌ شده بر روی کالا می‌باشد.
+                                                </p>
+                                            </div>
+                                        </span>
+                                        @{
+                                            var price = Model.Price;
+                                            var priceoff = Model.PriceOff;
+                                            int pricedarsad = 100 - ((priceoff * 100) / price);
+
+                                        }
+                                    </div><div class="c-product__seller-price-prev js-rrp-price">@Model.Price </div><div class="c-product__seller-price-off js-discount-value">@pricedarsad٪</div>
+                                </div><div class="c-product__seller-price-real">
+                                    <div class="c-product__seller-price-raw js-price-value">@Model.PriceOff </div>
+                                    تومان
+                                </div><div class="c-product__additional-item c-product__additional-item--no-icon js-price-discount-osm u-hidden">
+                                    <span class="js-discount-osm-value"></span>&nbsp;  تومان تخفیف سازمانی کسر گردیده است.
+                                </div>
+                            </div>
+
+
+                            <div class="product-star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+
+                            <div class="variations-box">
+                                <table class="variations-table">
+                                    <tr>
+                                        <td class="table-label">رنگ</td>
+                                        <td class="table-value">
+                                            <ul class="list-check-box color">
+                                                <li><a class="selected" href="#"><span style="background:#4d6dbd;">آبی</span></a></li>
+                                                <li><a href="#"><span style="background:#fb5d5d;">آبی</span></a></li>
+                                                <li><a href="#"><span style="background:#2fbcda;">آبی</span></a></li>
+                                                <li><a href="#"><span style="background:#ffe00c;">آبی</span></a></li>
+                                                <li><a href="#"><span style="background:#72b226;">آبی</span></a></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-label">سایز</td>
+                                        <td class="table-value">
+                                            <ul class="list-check-box">
+                                                <li><a href="#">کوچک</a></li>
+                                                <li><a href="#">متوسط</a></li>
+                                                <li><a href="#">بزرگ</a></li>
+
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-label">تعداد</td>
+                                        <td class="table-value">
+                                            <div class="box-qty">
+                                                <a href="#" class="quantity-minus">-</a>
+                                                <input type="text" class="quantity" value="1">
+                                                <a href="#" class="quantity-plus">+</a>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="box-control-button">
+                                <a class="link-wishlist" href="#"> لیست علاقه مندی </a>
+                                <a class="link-compare" href="#"> مقایسه این محصول </a>
+                                <a class="link-sendmail" href="#"> ایمیل کردن به دوست </a>
+                                <a class="link-print" href="#"> ارسال برای چاپ </a>
+                            </div>
+
+
+
+                            <div class="c-product__seller-row c-product__seller-row--add-to-cart c-product__add-container js-add-to-cart-container js-fast-shopping"><a class="btn-add-to-cart btn-add-to-cart--full-width js-add-to-cart js-product-page-add-to-card js-btn-add-to-cart" style="display: block;color:white" onclick="AddToCart(@Model.ProductID)"><span class="btn-add-to-cart__txt">افزودن به سبد خرید</span></a></div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12" dir="rtl">
+                        <div class="block block-category-list">
+                            <div class="block-inner">
+                                @foreach (var item in Model.Product_Tags)
+                                {
+
+
+                                    <a href="/Search?q=@item.Tag"><span>@item.Tag</span></a>
+
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-5">
+                <div class="block block-product-image">
+                    <div class="product-image easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+                        <a href="~/Images/ProductImages/@Model.ImageName">
+                            <img src="~/Images/ProductImages/@Model.ImageName" alt="Product" width="450" height="450" />
+                        </a>
+                    </div>
+
+                    <div class="product-list-thumb">
+                        <ul class="thumbnails kt-owl-carousel" data-margin="10" data-nav="true" data-responsive='{"0":{"items":2},"600":{"items":2},"1000":{"items":3}}'>
+                            @{
+                                if (Model.Product_Galleryies.Any())
+                                {
+                                    foreach (var item in Model.Product_Galleryies)
+                                    {
+                                        <li>
+                                            <a class="selected" href="~/Images/ProductImages/@item.ImageName"
+                                               data-standard="/Images/ProductImages/@item.ImageName">
+                                                <img src="~/Images/ProductImages/Thumb/@item.ImageName" alt="" />
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <!-- Product tab -->
+        <div class="block block-tabs tab-left">
+            <div class="block-head">
+                <ul class="nav-tab">
+                    <li class="active hidden-xs"><a data-toggle="tab" href="#tab-1">نقد و بررسی</a></li>
+                    <li><a data-toggle="tab" href="#tab-2">مشخصات</a></li>
+                    <li><a data-toggle="tab" href="#tab-3">نظرات پرسش و پاسخ</a></li>
+                </ul>
+            </div>
+            <div class="block-inner">
+                <div class="tab-container">
+                    <div id="tab-1" class="tab-panel active hidden-xs" dir="rtl">
+                        <section class="c-content-expert__summary">
+                            <div class="c-mask js-mask is-masked">
+                                <div>
+
+                                    <p>@Html.Raw(Model.Text)</p>
+                                </div>
+                        </section>
+                    </div>
+                    <div id="tab-2" class="tab-panel" dir="rtl">
+
+                        @Html.Action("ProductFeatures", Model.ProductID)
+
+                    </div>
+                    <div id="tab-3" class="tab-panel" dir="rtl">
+                        @*<div id="reviews">
+
+                            <div id="listComment">
+                                @Html.Action("ShowComments")
+                            </div>
+
+                            <div class="comment-form" id="CommentProduct">
+                                @Html.Action("CreateComment")
+                            </div>
+
+
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product tab -->
+        <!-- Related Products -->
+        <div class="block block-products-owl">
+            <div class="block-head">
+                <div class="block-title">
+                    <div class="block-title-text text-lg">محصولات پر فروش</div>
+                </div>
+            </div>
+            <div class="block-inner">
+                <ul class="products kt-owl-carousel" data-margin="20" data-loop="true" data-nav="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p33.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">لباس زنانه مارک دار ایتالیایی</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 139.000</span>
+                                    <span class="product-price-old"> 169.000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p36.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">ساعت سه موتوره کاسیو</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 149.000</span>
+                                    <span class="product-price-old"> 169.000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p37.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">مانیتورهای حرفه ای ال جی</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 200.000</span>
+                                    <span class="product-price-old"> 220.000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p28.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p39.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ./Related Products -->
+        <!-- upsell Products -->
+        <div class="block block-products-owl">
+            <div class="block-head">
+                <div class="block-title">
+                    <div class="block-title-text text-lg">محصولات پر بازدید</div>
+                </div>
+            </div>
+            <div class="block-inner">
+                <ul class="products kt-owl-carousel" data-margin="20" data-loop="true" data-nav="true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":5}}'>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p40.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p41.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p42.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p43.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="product">
+                        <div class="product-container">
+                            <div class="product-left">
+                                <div class="product-thumb">
+                                    <a class="product-img" href="#"><img src="/Content/data/option1/p44.jpg" alt=""></a>
+                                    <a title="مشاهده سریع" href="#" class="btn-quick-view">مشاهده سریع</a>
+                                </div>
+                            </div>
+                            <div class="product-right">
+                                <div class="product-name">
+                                    <a href="#">S10 سامسونگ</a>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price"> 130000</span>
+                                    <span class="product-price-old"> 145000</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="علاقه مندی" href="#">اضافه به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="مقایسه" href="#">اضافه برای مقایسه کردن</a>
+                                    <a class="button-radius btn-add-cart" title="اضافه به سبد" href="#">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ./upsell Products -->
+    </div>
+</div>
+
+<script>
+    function successComment() {
+        $("#Name").val("");
+        $("#Email").val("");
+        $("#WebSite").val("");
+        $("#Comment").val("");
+        $("#ParentID").val("");
+    }
+
+    function ReplyComment(id) {
+        $("#ParentID").val(id);
+        $("html,body").delay(100).animate({ scrollTop: $('#CommentProduct').offset().top }, 500);
+    }
+</script>

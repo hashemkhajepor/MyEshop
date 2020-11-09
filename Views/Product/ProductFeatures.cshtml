@@ -1,0 +1,59 @@
+﻿@using DataLayer;
+@model IEnumerable<DataLayer.Feature_Groups>
+
+<div class="c-params is-active">
+    <article>
+        <h2 class="c-params__headline">
+            مشخصات فنی            <span>Technical specifications of the product in Amazon</span>
+        </h2>
+
+        @{
+            if (ViewBag.ProductFeature != null)
+            {
+
+                List<int> groupfeature = ViewBag.featuresub;
+                List<Product_Features> list = ViewBag.ProductFeature;
+                foreach (var item in groupfeature)
+                {
+                    foreach (var itema in Model.Where(p => p.FeatureGroupID == item))
+                    {
+                        <section>
+                            <h3 class="c-params__title" style="margin-bottom:45px">@itema.FeatureGroupTitle</h3>
+                            @foreach (var itemaa in Model.Where(j => j.FeatureParentID == item))
+                            {
+                                if (list.Where(id => id.FeatureID == itemaa.FeatureGroupID).Any())
+                                {
+                                    <ul class="c-params__list" style="margin-bottom:25px">
+
+                                        <li>
+                                            <div class="c-params__list-key">
+                                                <span class="block">@itemaa.FeatureGroupTitle</span>
+                                            </div>
+                                            <div class="c-params__list-value">
+
+
+                                                <span class="block">
+                                                    @string.Join(",", list.Where(i => i.FeatureID == itemaa.FeatureGroupID).Select(i => i.value))
+
+                                                </span>
+
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                }
+
+                            }
+                        </section>
+                    }
+
+                }
+            }
+
+
+        }
+
+    </article>
+
+</div>
+

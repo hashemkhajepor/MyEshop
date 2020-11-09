@@ -1,0 +1,35 @@
+﻿@model DataLayer.Feature_Groups
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Feature_Groups</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureGroupTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureGroupTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feature_Groups2.FeatureGroupTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feature_Groups2.FeatureGroupTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeatureGroupID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

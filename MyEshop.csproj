@@ -1692,6 +1692,14 @@
     <Content Include="ckeditor\_samples\adobeair\run.bat" />
     <Content Include="ckeditor\_samples\adobeair\run.sh" />
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
+    <Content Include="Areas\Admin\Views\Products\Gallery.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Features.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Feature_Groups\ListFeature.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\ProductImages\images.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1716,6 +1724,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\Feature_GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
@@ -1797,6 +1806,12 @@
     <Content Include="Views\Account\SuccessForgotPassword.cshtml" />
     <Content Include="Views\Account\RecoveryPassword.cshtml" />
     <Content Include="Views\Product\ShowGroups.cshtml" />
+    <Content Include="Views\Shared\_Product.cshtml" />
+    <Content Include="Views\Product\LastProduct.cshtml" />
+    <Content Include="Views\Product\AmazonOffer.cshtml" />
+    <Content Include="Views\Product\Amazing.cshtml" />
+    <Content Include="Views\Product\ShowProduct.cshtml" />
+    <Content Include="Views\Product\ProductFeatures.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

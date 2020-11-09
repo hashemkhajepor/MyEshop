@@ -1,0 +1,72 @@
+﻿@model DataLayer.Product_Galleryies
+
+@{
+    ViewBag.Title = "گالری تصاویر محصول";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2></h2>
+<div class="row">
+@using (Html.BeginForm("Gallery", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProductID)
+<div class="form-horizontal">
+    <h4>گالری تصاویر محصول</h4>
+    <hr style="border-top:1px solid red" />
+    <div class="col-md-4">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <label for="files" class="btn btn-primary">افزودن تصویر</label>
+            <input type="file" name="imgUp" id="files" style="visibility:hidden" />
+            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="ثبت تصویر" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="col-md-8">
+        @{ 
+
+
+            List<DataLayer.Product_Galleryies> list = ViewBag.Galleries;
+            <table class="table">
+                <tr>
+                    <th>عنوان</th>
+                    <th>تصویر</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in list)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td><img src="~/Images/ProductImages/Thumb/@item.ImageName" alt="@item.Title" class="thumbnails" /></td>
+                        <td><a href="/Admin/Products/DeleteGallery/@item.GalleryID" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                }
+            </table>
+            }
+    </div>
+}
+    </div>
+<div>
+    @Html.ActionLink("بازگشت به لیست محصولات", "Index")
+</div>

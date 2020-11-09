@@ -1,0 +1,31 @@
+﻿@using DataLayer;
+@model IEnumerable<DataLayer.Products>
+
+
+<div class="col-md-12 col-lg-8">
+
+    <div class="block block-offers">
+        <div class="block-head">
+            <div class="block-title">
+                <div class="block-icon">
+                    <img src="/Content/data/offers-icon.png" alt="نماد فروشگاه">
+                </div>
+                <div class="block-title-text text-sm"> </div>
+                <div class="block-title-text text-lg"> </div>
+            </div>
+        </div>
+        <div class="block-inner">
+            <ul class="products kt-owl-carousel" data-margin="0" data-loop="true" data-nav="true" data-responsive='{"0":{"items":2},"600":{"items":2},"1000":{"items":2}}'>
+                @{
+                    foreach (var item in Model)
+                    {
+                        @Html.Partial("_Product", item)
+                    }
+                }
+
+
+            </ul>
+        </div>
+    </div>
+
+</div>

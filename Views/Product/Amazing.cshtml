@@ -1,0 +1,26 @@
+﻿@using DataLayer
+
+<div class="block block-top-sellers">
+    <div class="block-head">
+        <div class="block-title">
+            <div class="block-icon">
+                <img src="/Content/data/top-seller-icon.png" alt="نماد فروشگاه">
+            </div>
+            <div class="block-title-text text-sm"> </div>
+            <div class="block-title-text text-lg"> </div>
+        </div>
+    </div>
+    <div class="block-inner">
+        <ul class="products kt-owl-carousel" data-items="1" data-autoplay="true" data-loop="true" data-nav="true">
+            @{
+                List<Products> priceProduct = ViewBag.ProductPrices;
+                foreach (var item in priceProduct)
+                {
+                    @Html.Partial("_Product", item)
+                }
+            }
+
+
+        </ul>
+    </div>
+</div>

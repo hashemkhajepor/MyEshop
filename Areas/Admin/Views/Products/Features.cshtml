@@ -1,0 +1,139 @@
+﻿@using DataLayer;
+@model DataLayer.Product_Features
+
+@{
+    ViewBag.Title = "ویژگی های محصول";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ProductID)
+        <div class="col-md-4">
+            <div class="form-horizontal">
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                <table class="table">
+                    <tr>
+                        <td class="form-group"> سرگروه </td>
+                        <td>
+                            @Html.DropDownList("group", ViewBag.group as List<SelectListItem>, new
+                       {
+                           @id = "ddlCountry",
+                           @class = "form-control"
+                       })
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+
+                        <td class="form-group">
+                            انتخاب ویژگی
+                        </td>
+                        <td>
+                            @Html.DropDownList("FeatureID", new SelectList(string.Empty), new
+                   {
+                       @id = "ddlSate",
+                       @class = "form-control"
+                   })
+
+                        </td>
+                    </tr>
+
+
+                </table>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.value, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.value, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.value, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="ثبت" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+            @{
+                List<Product_Features> list = ViewBag.Feature;
+                <table class="table">
+                    <tr>
+                        <th>ویژگی</th>
+                        <th>مقدار</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var item in list)
+                    {
+                        <tr id="feature_@(item.PF_ID)">
+                            <td>@item.Feature_Groups.FeatureGroupTitle</td>
+                            <td>@item.value</td>
+                            <td><a onclick="DeleteFeatures(@item.PF_ID)" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a></td>
+                        </tr>
+                    }
+                </table>
+
+
+            }
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@section Scripts{
+
+    <script>
+        function DeleteFeatures(id) {
+            if (confirm("آیا از حذف مطمئن هستید؟")) {
+                $.get("/Admin/Products/DeleteFea/" + id,
+                    function () {
+                        $("#feature_" + id).hide('slow');
+                    });
+            }
+        }
+    </script>
+
+    <script>
+
+
+        $("#ddlCountry").change(function () {
+            var SelectedVal = $(this).val();
+            $("#ddlSate").html('');
+
+            if (SelectedVal != '') {
+
+                $.get("/Admin/Products/GetState/",
+                    {
+                        "CountryId": SelectedVal
+                    }).success(function (data) {
+                        $.each(data, function (Features, item) {
+                            $("#ddlSate").append($("<option></option>").attr("value", item.FeatureGroupID)
+                                .text(item.FeatureGroupTitle));
+                        });
+
+                    });
+            }
+        });
+
+    </script>
+
+}
+
