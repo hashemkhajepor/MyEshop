@@ -1734,6 +1734,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageEmailsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1812,6 +1813,10 @@
     <Content Include="Views\Product\Amazing.cshtml" />
     <Content Include="Views\Product\ShowProduct.cshtml" />
     <Content Include="Views\Product\ProductFeatures.cshtml" />
+    <Content Include="Views\Product\ShowComments.cshtml" />
+    <Content Include="Views\Product\CreateComment.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Product\ArchiveProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

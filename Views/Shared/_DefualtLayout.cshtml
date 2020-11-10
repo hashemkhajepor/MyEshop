@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/assets/css/responsive.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    
     <link href="/Content/assets/css/zoom.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 
@@ -61,7 +62,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-3"></div>
                     <div class="block-wrap-search col-sm-6 col-md-6 col-lg-5" dir="rtl">
                         <div class="advanced-search box-radius">
-                            <form class="form-inline">
+                            <form class="form-inline" action="/Search" method="get">
                                 <div class="form-group search-category">
                                     <select id="category-select" class="search-category-select">
                                         <option value="1">همه دسته بندی ها</option>
@@ -70,7 +71,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group search-input">
-                                    <input type="text" placeholder="جستجو">
+                                    <input type="text" placeholder="جستجو" name="q">
                                 </div>
 
                             </form>
@@ -384,7 +385,8 @@
 
                                     <li><a href="Prodact.html">کتاب، لوازم تحریر و هنر</a></li>
 
-                                    <li><a href="Prodact.html"> فروش ویژه</a></li>
+
+                                    <li><a href="/Archive"> آرشیو محصولات </a></li>
                                 </ul>
                             </div><!--/.nav-collapse -->
                         </div>
@@ -395,6 +397,7 @@
         <!-- ./main menu-->
     </header>
     <!-- ./header -->
+    @RenderSection("Filters", false)
     @RenderBody()
     <!-- footer -->
     <footer id="footer">
@@ -579,7 +582,7 @@
     <script type="text/javascript" src="/Content/assets/js/script.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 </body>
 
 

@@ -1,0 +1,194 @@
+﻿@model IEnumerable<DataLayer.Products>
+@{
+    ViewBag.Title = "آرشیو محصولات";
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+
+
+
+@section Filters{
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-lg-9">
+                <!-- Home slide -->
+
+                <div class="row" dir="rtl">
+
+                    <section>
+                        <header><h4 style="color:blue">آرشیو محصولات</h4></header>
+                        <hr style="border-color: crimson" />
+                        <div class="category-products">
+                            <ul class="products row" style="margin-right:2px">
+                                @foreach (var item in Model)
+                                {
+                                    <li class="product col-xs-12 col-sm-4 col-md-3" style="float:right">
+                                        <div class="product-container">
+                                            <div class="inner">
+                                                <div class="product-left">
+                                                    <div class="product-thumb">
+                                                        <a class="product-img" href="detail.html"><img src="~/Images/ProductImages/@item.ImageName" alt="Product"></a>
+                                                        <a title="" href="detail.html" class="btn-quick-view"></a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-right">
+                                                    <div class="product-name">
+                                                        <a href="/ShowProduct/@item.ProductID">@item.Title</a>
+                                                    </div>
+                                                    <div class="price-box">
+                                                        <span class="product-price">@item.PriceOff</span>
+                                                        <span class="product-price-old">@item.Price</span>
+                                                    </div>
+                                                    <div class="product-star">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-o"></i>
+                                                    </div>
+                                                    <div class="product-button">
+                                                        <a class="btn-add-wishlist" title="اضافه به علاقه مندی" href="#">اضافه به علاقه مندی</a>
+                                                        <a class="btn-add-comparre" title="اضافه برای مقایسه" onclick="AddToCompare(@item.ProductID)">اضافه برای مقایسه</a>
+                                                        <a class="button-radius btn-add-cart" title="اضافه به سبد" onclick="AddToCart(@item.ProductID)">خرید<span class="icon"></span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+
+                            </ul>
+                            @if (ViewBag.PageCount > 0)
+                            {
+
+                                <div class="sortPagiBar">
+
+                                    <div class="sortPagiBar-inner">
+                                        <nav>
+                                            <ul class="pagination" style="margin-top:75px ; float:left">
+                                                <li>
+                                                    <a href="#" aria-label="Next">
+                                                        <span aria-hidden="true">بعدی</span>
+                                                    </a>
+                                                </li>
+                                                @for (int i = 1; i <= ViewBag.PageCount; i++)
+                                                {
+
+                                                    <li><a onclick="changePage(@i)">@i</a></li>
+                                                }
+
+
+                                                <li>
+                                                    <a href="#" aria-label="Next">
+                                                        <span aria-hidden="true">قبلی</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+
+                                    </div>
+
+                                </div>
+                            }
+                    </section>
+
+
+                    <!-- ./Home slide -->
+                </div>
+
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-3 hidden-xs" style="margin-top:30px">
+                <!-- block category -->
+                <div class="scrollbar" style="height:495px" id="style-1">
+                    <div class="force-overflow">
+
+                        <div class="block block-category">
+                            <div class="block-head">
+                                <ul class="nav-tab">
+
+                                    <li class="active" style="float:right ; ">فیلتر ها</li>
+
+
+                                </ul>
+                                <hr style="border-color : blue ; margin-top:2px ; margin-bottom:10px" />
+                                <article class="filter" dir="rtl">
+                                    <form action="/Archive" id="filterform">
+                                        <input type="hidden" name="PageId" value="@ViewBag.PageId" id="PageId" />
+                                        <p>عنوان</p>
+                                        <p><input type="text" name="title" class="form-control" value="@ViewBag.ProductTitle" /></p>
+                                        <p>قیمت از</p>
+                                        <p><input type="number" name="minPrice" value="@ViewBag.minPrice" class="form-control" /></p>
+                                        <p>قیمت تا</p>
+                                        <p><input type="number" name="maxPrice" value="@ViewBag.maxPrice" class="form-control" /></p>
+                                        @{
+                                            List<DataLayer.Product_Groups> list = ViewBag.Groups;
+                                            List<int> Selected = ViewBag.SelectedGroup ?? new List<int>();
+
+                                        }
+                                        <p>گروه ها</p>
+                                        <ul>
+                                            @foreach (var group in list.Where(p => p.ParentID == null))
+                                            {
+                                                <li>
+                                                    <div class="input-group">
+                                                        <input style="margin:3px" type="checkbox" name="selectedGroups" @((Selected.Any(s => s == group.GroupID)) ? "checked" : "") value="@group.GroupID" />
+                                                        <a data-toggle="collapse" href="#@group.GroupID"
+                                                           aria-expanded="false" aria-controls="collapseExample"><span>@group.GroupTitle</span></a>
+                                                    </div>
+                                                    <div id="@group.GroupID" class="collapse">
+                                                        @if (list.Any(g => g.ParentID == group.GroupID))
+                                                        {
+                                                            <ul style="padding-right:20px">
+                                                                @foreach (var subgroup in list.Where(g => g.ParentID == group.GroupID))
+                                                                {
+                                                                    <li>
+                                                                        <div class="input-group">
+                                                                            <input style="margin:3px" type="checkbox" name="selectedGroups" @((Selected.Any(s => s == subgroup.GroupID)) ? "checked" : "") value="@subgroup.GroupID" />
+                                                                            <a href="#@subgroup.GroupID" data-toggle="collapse" aria-expanded="false"><span>@subgroup.GroupTitle</span></a>
+                                                                        </div>
+
+                                                                        <div id="@subgroup.GroupID" class="collapse">
+                                                                            <ul style="padding-right:20px">
+                                                                                @foreach (var minGroup in list.Where(p => p.ParentID == subgroup.GroupID))
+                                                                                {
+                                                                                    <li>
+                                                                                        <div class="input-group">
+                                                                                            <input type="checkbox" name="selectedGroups" value="@minGroup.GroupID" style="margin:3px" />
+                                                                                            <span>@minGroup.GroupTitle</span>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                }
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </div>
+                                                </li>
+                                            }
+                                        </ul>
+                                        <input type="submit" class="btn btn-block btn-info" value="اعمال" />
+                                    </form>
+                                </article>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+
+<script>
+    function changePage(pageId) {
+        $("#PageId").val(pageId);
+        $("#filterform").submit();
+        $("#PageId").val("");
+    }
+</script>

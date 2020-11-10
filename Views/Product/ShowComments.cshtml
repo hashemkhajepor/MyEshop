@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DataLayer.Product_Comments>
+
+
+@foreach (var item in Model.Where(p => p.ParentID == null))
+{
+
+
+
+    <ol class="comment-list">
+
+        <li class="comment">
+            <div class="comment-avatar">
+                <img src="~/Images/ProductImages/Users.jpg" style="border:none" alt="Avatar">
+            </div>
+            <div class="comment-content">
+                <div class="comment-meta">
+                    <a href="#" class="comment-author">@item.Name</a>
+                    <span class="comment-date">ارسال شده در تاریخ @item.CreateDate.ToShamsi()</span>
+                    <div class="review-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                    </div>
+                </div>
+                <div class="comment-entry">
+                    <p>@item.Comment</p>
+                </div>
+                <div class="comment-actions">
+                    <a class="comment-reply-link" onclick="ReplyComment(@item.CommentID)"><i class="fa fa-share"></i> پاسخ</a>
+                </div>
+
+            </div>
+
+            @if (Model.Any(c => c.ParentID == item.CommentID))
+            {
+
+                foreach (var iteem in Model.Where(g => g.ParentID == item.CommentID))
+                {
+                    <div style="padding-right:75px">
+                        <img src="~/Images/ProductImages/Users.jpg" style="border:none" alt="Avatar">
+                        <a href="#">@iteem.Name</a>
+                        <span class="comment-date">ارسال شده در تاریخ @iteem.CreateDate.ToShamsi()</span>
+                        <hr />
+                        <div class="comment-entry">
+                            <p>@iteem.Comment</p>
+                        </div>
+                    </div>
+
+                }
+
+            }
+        </li>
+    </ol>
+}
+
+
+

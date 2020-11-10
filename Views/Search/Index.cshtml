@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DataLayer.Products>
+@{
+
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+
+<img src="~/Content/data/banner/shoping.jpg" />
+
+<div class="container">
+    <div class="row" dir="rtl">
+        <div class="alert alert-success">
+            <p>تعداد @Model.Count()  محصول با کلمه کلیدی @ViewBag.search یافت شد.</p>
+        </div>
+
+        <div class="category-products">
+            <ul class="products row" style="padding:15px; display:flex">
+                @foreach (var item in Model)
+                {
+                    <li class="product col-xs-12 col-sm-4 col-md-3">
+                        <div class="product-container">
+                            <div class="inner">
+                                <div class="product-left">
+                                    <div class="product-thumb">
+                                        <a href="#" class="product-img"><img src="~/Images/ProductImages/@item.ImageName" alt="Product" /></a>
+                                        <a href="#" title="" class="btn-quick-view"></a>
+                                    </div>
+                                </div>
+                                <div class="product-right">
+                                    <div class="product-name"><a href="/ShowProduct/@item.ProductID">@item.Title</a></div>
+                                </div>
+                                <div class="price-box">
+                                    <span class="product-price">@item.Price</span>
+                                    <span class="product-price-old">@item.PriceOff</span>
+                                </div>
+                                <div class="product-star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="product-button">
+                                    <a class="btn-add-wishlist" title="افزودن به لیست علاقه مندی" href="#">افزودن به لیست علاقه مندی</a>
+                                    <a class="btn-add-comparre" title="افزودن برای مقایسه" href="#">افزودن برای مقایسه</a>
+                                    <a class="button-radius btn-add-cart" title="افزودن به سبد" onclick="AddToCart(@item.ProductID)">خرید<span class="icon"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
