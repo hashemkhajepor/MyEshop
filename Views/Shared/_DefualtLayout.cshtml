@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="/Content/assets/css/responsive.css" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    
+
     <link href="/Content/assets/css/zoom.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 
@@ -85,51 +85,14 @@
                     <div class="block-wrap-cart col-sm-3 col-md-3 col-lg-2">
                         <div class="iner-block-cart box-radius">
                             <a href="cart.html">
-                                <span class="total">جمع کل: 3240</span>
+                                <span class="total">تعداد کل</span><span id="countShopCart"></span>
+
                             </a>
                         </div>
-                        <div class="block-mini-cart" dir="rtl">
-                            <div class="mini-cart-content">
-                                <h5 class="mini-cart-head">محصولات موجود در سبد</h5>
-                                <div class="mini-cart-list">
-                                    <ul>
-                                        <li class="product-info">
-                                            <div class="p-left">
-                                                <a href="#" class="remove_link"></a>
-                                                <a href="cart.html">
-                                                    <img class="img-responsive" src="/Content/data/p1.jpg" alt="Product">
-                                                </a>
-                                            </div>
-                                            <div class="p-right">
-                                                <p class="p-name">ویندوز فون</p>
-                                                <p class="product-price">قیمت:450</p>
-                                                <p>تعداد:4</p>
-                                            </div>
-                                        </li>
-                                        <li class="product-info">
-                                            <div class="p-left">
-                                                <a href="#" class="remove_link"></a>
-                                                <a href="cart.html">
-                                                    <img class="img-responsive" src="/Content/data/p2.jpg" alt="Product">
-                                                </a>
-                                            </div>
-                                            <div class="p-right">
-                                                <p class="p-name">گلکسی s4</p>
-                                                <p class="product-price">قیمت:720</p>
-                                                <p>تعداد:2</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="toal-cart">
-
-                                    <span class="toal-price pull-right"></span><span>جمع کل: 3240</span>
-                                </div>
-                                <div class="cart-buttons">
-                                    <a href="cart.html" class="button-radius btn-check-out">نمایش سبد<span class="icon"></span></a>
-                                </div>
-                            </div>
+                        <div id="showCart">
+                            @Html.Action("ShowCart", "ShopCart")
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -583,6 +546,26 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+
+        $(function () {
+            countShopCart();
+        });
+        function countShopCart() {
+            $.get("/Api/Shop", function (res) {
+                $("#countShopCart").html(res);
+            });
+        }
+        function AddToCart(id) {
+            $.get("/Api/Shop/" + id, function (res) {
+                $("#countShopCart").html(res);
+                updateShopCart();
+            });
+        }
+        function updateShopCart() {
+            $("#showCart").load("/ShopCart/ShowCart");
+        }
+    </script>
 </body>
 
 

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "عملیات خرید";
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+
+<div class="container" dir="rtl">
+    @if (ViewBag.IsSuccess == true)
+    {
+
+        <h4 style="color:darkcyan">تراکنش با موفقیت انجام شد.</h4>
+        <h5 style="color:blue">کد پیگیری خرید شما : @ViewBag.RefId</h5>
+    }
+    else
+    {
+        <h4 style="color:darkred">عملیات خرید با شکست مواجه شد.</h4>
+        <p style="color:blue">در صورت کسر شدن هزینه از حسابتان تا 24 ساعت آینده مبلغ کسر شده بازگشت خواهد خورد!</p>
+    }
+</div>
+
+

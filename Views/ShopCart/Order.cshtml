@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DataLayer.ViewModelClasses.ShopCartItemViewModel>
+<div class="container" dir="rtl">
+    <div class="row">
+
+        <div class="main-page">
+            <h1 class="page-title">خلاصه خرید سبد خرید</h1>
+            <div class="page-content page-order">
+
+                <div class="order-detail-content">
+                    <table class="cart_summary">
+                        <thead>
+                            <tr>
+                                <th class="cart_product">محصول</th>
+                                <th>توضیحات</th>
+
+                                <th>قیمت</th>
+                                <th class="hidden-xs">تعداد</th>
+                                <th class="hidden-xs">جمع</th>
+                                <th class="action "><i class="fa fa-trash-o"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="cart_product">
+                                        <a href="#"><img class="img-responsive" src="~/Images/ProductImages/Thumb/@item.ImageName" alt="Product"></a>
+                                    </td>
+                                    <td class="cart_description">
+                                        <p class="product-name"><a href="#">@item.Title </a></p>
+
+                                    </td>
+
+                                    <td class="price"><span>@item.Price.Toman()</span></td>
+                                    <td class="qty hidden-xs">
+                                        <input type="number" step="1" min="1" max="30" value="@item.Count" onchange="CommandOrder(@item.ProductID , $(this).val())">
+
+                                    </td>
+                                    <td class="price hidden-xs">
+                                        <span>@item.Sum.Toman()</span>
+                                    </td>
+                                    <td>
+                                        <a onclick="CommandOrder(@item.ProductID , 0 )"><i class="glyphicon glyphicon-trash btn-sm"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                                <td colspan="3">جمع کل صورت حساب</td>
+                                <td colspan="4">@Model.Sum(p => p.Sum).Toman()</td>
+                            </tr>
+
+                        </tfoot>
+                    </table>
+                    <div class="cart_navigation">
+                        <a class="btn btn-success" href="/ShopCart/Payment"><i class="fa fa-angle-left"></i> اتصال به دروازه پرداخت </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

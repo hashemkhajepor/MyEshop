@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DataLayer.ViewModelClasses.ShopCartItemViewModel>
+
+<div id="showCart">
+    <div class="block-mini-cart" dir="rtl">
+        <div class="mini-cart-content">
+            <h5 class="mini-cart-head">محصولات موجود در سبد</h5>
+            <div class="mini-cart-list">
+                <ul>
+                    @foreach (var item in Model)
+                    {
+                        <li class="product-info">
+                            <div class="p-left">
+                                <a href="#" class="remove_link"></a>
+                                <a href="cart.html">
+                                    <img class="img-responsive" src="~/Images/ProductImages/Thumb/@item.ImageName" alt="Product">
+                                </a>
+                            </div>
+                            <div class="p-right">
+                                <p class="p-name">@item.Title</p>
+                                <p class="product-price">قیمت: @item.Price.Toman()</p>
+                                <p>تعداد: @item.Count</p>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            <div class="toal-cart">
+
+                <span class="toal-price pull-right"></span><span>جمع کل: @Model.Sum(p => p.Sum).Toman()</span>
+            </div>
+            <div class="cart-buttons">
+                <a href="/ShopCart" class="button-radius btn-check-out">نمایش سبد<span class="icon"></span></a>
+            </div>
+        </div>
+    </div>
+</div>

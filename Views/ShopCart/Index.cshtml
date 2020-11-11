@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "فاکتور";
+    Layout = "~/Views/Shared/_DefualtLayout.cshtml";
+}
+
+<div id="showOrder">
+    @Html.Action("Order")
+</div>
+
+<script>
+
+    function CommandOrder(id, count) {
+        $.ajax({
+            url: "/ShopCart/CommandOrder/" + id,
+            type: "Get",
+            data: { count: count }
+        }).done(function (res) {
+            $("#showOrder").html(res);
+        });
+    }
+</script>
