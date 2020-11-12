@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -47,7 +48,7 @@ namespace MyEshop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SlideID,Title,ImageName,StartDate,EndDate,IsActive")] Slider slider , HttpPostedFileBase imgUp)
+        public ActionResult Create([Bind(Include = "SlideID,Title,Url,ImageName,StartDate,EndDate,IsActive")] Slider slider , HttpPostedFileBase imgUp)
         {
             if (ModelState.IsValid)
             {
@@ -56,12 +57,17 @@ namespace MyEshop.Areas.Admin.Controllers
                     ModelState.AddModelError("ImageName", "لطفا تصویر را انتخاب کنید");
                     return View(slider);
                 }
+                PersianCalendar pc = new PersianCalendar();
+                slider.StartDate = new DateTime(slider.StartDate.Year, slider.StartDate.Month, slider.StartDate.Day, pc);
+                slider.EndDate = new DateTime(slider.EndDate.Year, slider.EndDate.Month, slider.EndDate.Day, pc);
                 slider.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgUp.FileName);
                 imgUp.SaveAs(Server.MapPath("/Images/Slider/" + slider.ImageName));
-                db.SliderRepository.Insert(slider);
+
                 db.SliderRepository.Insert(slider);
                 db.Save();
                 return RedirectToAction("Index");
+
+          
             }
 
             return View(slider);
@@ -87,10 +93,21 @@ namespace MyEshop.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SlideID,Title,ImageName,StartDate,EndDate,IsActive")] Slider slider)
+        public ActionResult Edit([Bind(Include = "SlideID,Title,Url,ImageName,StartDate,EndDate,IsActive")] Slider slider , HttpPostedFileBase imgUp)
         {
             if (ModelState.IsValid)
             {
+                if (imgUp != null)
+                {
+                    System.IO.File.Delete(Server.MapPath("/Images/Slider/" + slider.ImageName));
+                
+                    slider.ImageName = Guid.NewGuid().ToString() + Path.GetExtension(imgUp.FileName);
+                    imgUp.SaveAs(Server.MapPath("/Images/Slider/" + slider.ImageName));
+                   
+                }
+                PersianCalendar pc = new PersianCalendar();
+                slider.StartDate = new DateTime(slider.StartDate.Year, slider.StartDate.Month, slider.StartDate.Day, pc);
+                slider.EndDate = new DateTime(slider.EndDate.Year, slider.EndDate.Month, slider.EndDate.Day, pc);
                 db.SliderRepository.Update(slider);
                 db.Save();
                 return RedirectToAction("Index");
@@ -118,6 +135,8 @@ namespace MyEshop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            Slider slider = db.SliderRepository.GetById(id);
+            System.IO.File.Delete(Server.MapPath("/Images/Slider/" + slider.ImageName));
             db.SliderRepository.Delete(id);
             db.Save();
             return RedirectToAction("Index");

@@ -1,10 +1,9 @@
 ﻿@model IEnumerable<DataLayer.Slider>
 
 @{
-    ViewBag.Title = "مدیریت اسلایدرها";
+    ViewBag.Title = "اسلایدر";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
 
 
 <p>
@@ -15,14 +14,16 @@
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageName)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -31,28 +32,28 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SlideID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SlideID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SlideID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+
+    <td>
+        @item.StartDate.ToShamsi()
+    </td>
+    <td>
+        @item.EndDate.ToShamsi()
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Url)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsActive)
+    </td>
+    <td>
+        <a href="@Url.Action("Edit" , new { id = item.SlideID })" class="btn btn-warning btn-xs" title="ویرایش محصول"><i class="glyphicon glyphicon-edit"></i></a>
+        <a href="@Url.Action("Delete" , new { id = item.SlideID })" class="btn btn-danger btn-xs" title="حذف محصول"><i class="glyphicon glyphicon-trash"></i></a>
+    </td>
+</tr>
 }
 
 </table>

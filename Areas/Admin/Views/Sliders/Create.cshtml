@@ -1,19 +1,21 @@
 ﻿@model DataLayer.Slider
 
 @{
-    ViewBag.Title = "افزودن اسلایدر";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
 
 
 @using (Html.BeginForm("Create", "Sliders", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    <h4 style="color:darkblue">اسلایدر جدید</h4>
+    <p>
+        <hr style="border-color: crimson" />
+    </p>
 
     <div class="form-horizontal">
-        <h4 style="color:darkblue">اسلایدر جدید</h4>
-        <hr style="border-top:solid 1px red" />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -23,11 +25,26 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label for="files" class="btn btn-info">افزودن تصویر</label>
+                <input type="file" id="files" name="imgUp" style="visibility:hidden" />
+                @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            <div class="col-md-10">
                 @Html.TextBoxFor(model => model.StartDate)
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
@@ -35,30 +52,23 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            <div class="col-md-10">
                 @Html.TextBoxFor(model => model.EndDate)
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ImageName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
-                <label for="files" class="btn btn-primary"> افزودن تصویر اسلایدر</label>
-                <input type="file" name="imgUp" id="files" style="visibility:hidden" />
-                @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-5">
+            <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsActive)
                     @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -78,12 +88,13 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/kendo.all.min.js"></script>
     <script>
-        $(document).ready(function () {
+                $(document).ready(function () {
 
-            // create DatePicker from input HTML element
-            $("#EndDate").kendoDatePicker();
-            $("#StartDate").kendoDatePicker();
-        });
-
+                    // create DatePicker from input HTML element
+                    $("#EndDate").kendoDatePicker();
+                    $("#StartDate").kendoDatePicker();
+                });
     </script>
+
+
 }

@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<DataLayer.Slider>
+
 <div class="container">
     <div class="row">
         <div class="row">
@@ -7,7 +8,11 @@
                 <div class="block block-slider">
 
                     <ul class="home-slider kt-bxslider">
-                     
+                        @foreach (var item in Model)
+                        {
+                            <li><a href="@item.Url"><img src="~/Images/Slider/@item.ImageName" alt="Slider"></a></li>
+
+                        }
 
                     </ul>
                 </div>
