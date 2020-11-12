@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DataLayer.CompareItem>
+
+<style>
+    .short {
+        white-space: nowrap;
+        width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<ul class="categories" id="compare">
+
+
+    @foreach (var item in Model)
+    {
+
+        <li>
+
+            <a onclick="DeleteCompare(@item.ProductID)" style="padding-right:20px">
+                <p class="short">@item.Title</p>
+            </a>
+
+        </li>
+    }
+
+    @if (Model.Any())
+    {
+
+        <a href="/Compare" class="btn btn-success" style="background-color:aqua ; width:200px; margin-right:33px; margin-top:30px">مشاهده لیست</a>
+
+    }
+
+</ul>
+
+

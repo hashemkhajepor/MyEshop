@@ -565,6 +565,16 @@
         function updateShopCart() {
             $("#showCart").load("/ShopCart/ShowCart");
         }
+        function AddTooCompare(id) {
+            $.get("/Compare/AddToCompare/" + id, function (res) {
+                $("#compare").html(res);
+            });
+        }
+        function DeleteCompare(id) {
+            $.get("/Compare/DeleteFromCompare/" + id, function (res) {
+                $("#compare").html(res);
+            });
+        }
     </script>
 </body>
 
